@@ -1,2 +1,19 @@
-package co.com.alernova.alternovareto.model.service;public class UserService {
+package co.com.alernova.alternovareto.model.service;
+
+import co.com.alernova.alternovareto.model.domain.User;
+import co.com.alernova.alternovareto.model.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    @Transactional
+    public User save(User user) {
+        return userRepository.save(user);
+    }
 }

@@ -1,6 +1,7 @@
 package co.com.alernova.alternovareto.controller;
 
 import co.com.alernova.alternovareto.model.domain.Movie;
+import co.com.alernova.alternovareto.model.domain.Value;
 import co.com.alernova.alternovareto.model.service.MovieService;
 import co.com.alernova.alternovareto.utilities.MyResponseUtility;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class MovieController {
         return  new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/get/movie")
+    @GetMapping(path = "/get/movies")
     public ResponseEntity<MyResponseUtility> getAllMovies() {
         response.data = movieService.getAllMovie();
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,17 +45,16 @@ public class MovieController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(path = "/get/sort/name")
-    public ResponseEntity<MyResponseUtility> sortByName() {
-        response.data = movieService.sortByName();
+    @GetMapping(path = "/get/sort/{criterion}")
+    public ResponseEntity<MyResponseUtility> sortByCriteria(@PathVariable(value = "criterion") String criterion) {
+        response.data = movieService.sortByCriteria(criterion);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(path = "/get/sort/score")
-    public ResponseEntity<MyResponseUtility> sortByScore() {
-        response.data = movieService.sortByScore();
+    @PostMapping(path = "/get/filter/{criterion}")
+    public ResponseEntity<MyResponseUtility> filtertByCiteria(@RequestBody Value value, @PathVariable(value = "criterion") String criterion) {
+        response.data = movieService.filterByCriteria(criterion, value);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 
 }

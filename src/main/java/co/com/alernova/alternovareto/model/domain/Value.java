@@ -1,2 +1,9 @@
-package co.com.alernova.alternovareto.model.domain;public class Value {
+package co.com.alernova.alternovareto.model.domain;
+
+import lombok.Data;
+
+@Data
+public class Value {
+
+    private String value;
 }

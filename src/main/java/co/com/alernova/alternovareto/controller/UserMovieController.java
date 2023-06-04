@@ -1,8 +1,8 @@
 package co.com.alernova.alternovareto.controller;
 
-
-import co.com.alernova.alternovareto.model.domain.User;
-import co.com.alernova.alternovareto.model.service.UserService;
+import co.com.alernova.alternovareto.model.domain.Movie;
+import co.com.alernova.alternovareto.model.domain.UserMovie;
+import co.com.alernova.alternovareto.model.service.UserMovieService;
 import co.com.alernova.alternovareto.utilities.MyResponseUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,18 +12,17 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class UserMovieController {
 
     @Autowired
-    private UserService userService;
+    private UserMovieService userMovieService;
 
     @Autowired
     private MyResponseUtility response;
 
-    @PostMapping(path ="/createUser")
-    public ResponseEntity<MyResponseUtility> createUser(@RequestBody User user){
-        response.data = userService.save(user);
+    @PostMapping(path ="/create/user/movie")
+    public ResponseEntity<MyResponseUtility> createMovie(@RequestBody UserMovie userMovie){
+        response.data = userMovieService.save(userMovie);
         return  new ResponseEntity<>(response, HttpStatus.CREATED);
     }
-
 }
