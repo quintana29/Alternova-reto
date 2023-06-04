@@ -1,6 +1,5 @@
 package co.com.alernova.alternovareto.controller;
 
-import co.com.alernova.alternovareto.model.domain.Movie;
 import co.com.alernova.alternovareto.model.domain.UserMovie;
 import co.com.alernova.alternovareto.model.service.UserMovieService;
 import co.com.alernova.alternovareto.utilities.MyResponseUtility;
@@ -20,9 +19,15 @@ public class UserMovieController {
     @Autowired
     private MyResponseUtility response;
 
-    @PostMapping(path ="/create/user/movie")
-    public ResponseEntity<MyResponseUtility> createMovie(@RequestBody UserMovie userMovie){
-        response.data = userMovieService.save(userMovie);
+    @PostMapping(path ="/mark/view/movie")
+    public ResponseEntity<MyResponseUtility> markView(@RequestBody UserMovie userMovie){
+        response = userMovieService.markView(userMovie);
+        return  new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping(path ="/rate/movie")
+    public ResponseEntity<MyResponseUtility> rateMovie(@RequestBody UserMovie userMovie){
+        response = userMovieService.rateMovie(userMovie);
         return  new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

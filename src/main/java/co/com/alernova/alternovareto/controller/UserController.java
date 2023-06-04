@@ -25,5 +25,10 @@ public class UserController {
         response.data = userService.save(user);
         return  new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+    @GetMapping(path ="/find/all/users")
+    public ResponseEntity<MyResponseUtility> findAll(){
+        response.data = userService.findAll();
+        return  new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
 
 }

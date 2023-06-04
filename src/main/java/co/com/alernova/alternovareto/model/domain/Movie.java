@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class Movie implements Serializable {
     private Integer id_movie;
 
     @NotEmpty(message = "no puede estar vacio")
-    @Size(min = 3, max =40 , message = "El tamaño debe de estar entre 4 y 12")
     @Column(nullable=false)
     private String name;
 
@@ -34,7 +32,6 @@ public class Movie implements Serializable {
     @Column(nullable=false, unique = true)
     private String type;
 
-    //@NotEmpty(message = "no puede estar vacio")
     private Integer numbers_view;
 
     @Range(min = 1, max = 5)

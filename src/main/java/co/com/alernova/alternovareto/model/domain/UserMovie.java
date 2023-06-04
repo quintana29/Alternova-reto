@@ -20,6 +20,10 @@ public class UserMovie implements Serializable {
 
     private Float score;
 
+    private Boolean state_view;
+
+    private Boolean state_score;
+
     @Column(nullable = false)
     private Integer id_movie;
 
