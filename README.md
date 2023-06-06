@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador">
 <h2>Reto Alternova</h2>
 <p>
- <a href="https://drive.google.com/file/d/1RMokWRVu31qQ8t2QONZeHBf3ua_OFtd8/view?usp=sharing">Colleccioones de Postman</a></br>
+ <a href="https://drive.google.com/file/d/1RMokWRVu31qQ8t2QONZeHBf3ua_OFtd8/view?usp=sharing">Collecciones de Postman</a></br>
  </em>
 </p>
 
